@@ -1,0 +1,29 @@
+module <CAP-ENUM-NAME> = {
+  type <ENUM-NAME> = <POSSIBLE-VALUES>
+}
+
+let <ENUM-DECODE-FUNCTION-NAME>EnumResult = (data) => {
+  open <CAP-ENUM-NAME>
+  data
+  ->Option.flatMap(JSON.Decode.string)
+  ->Option.mapWithDefault(Result.Error("failed to decode to <CAP-ENUM-NAME> type"), 
+    str => {
+      switch str {
+        <ENUM-DECODE-CODE>
+      }
+  })
+}
+
+let <ENUM-DECODE-FUNCTION-NAME>Result = (dict, key): result<<CAP-ENUM-NAME>.<ENUM-NAME>, string> => {
+  dict
+  ->Dict.get(key)
+  -><ENUM-DECODE-FUNCTION-NAME>EnumResult
+}
+
+let <ENUM-NAME>ToString = (enumValue) => {
+  open <CAP-ENUM-NAME>
+  switch enumValue {
+    <ENUM-ENCODE-CODE>
+  }
+}
+<OUT=../readOnly/api/types/Enums.res>

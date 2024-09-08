@@ -1,0 +1,12 @@
+{
+    "apiList": [
+        "/v2/pickup/route",
+        "/v2/auth"
+    ],
+    "avoidHeaders": [
+        "x-bundle-version",
+        "x-client-version",
+        "x-config-version",
+        "x-device"
+    ]
+}

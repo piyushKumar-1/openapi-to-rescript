@@ -1,0 +1,22 @@
+
+
+module Keys = {
+  let all = "<API-NAME>"
+}
+
+
+let <API-NAME>ApiCall = async (<INPUTS>) => {
+  let data = await ApiCall.call<METHOD>API'(
+    ~url=<API-ENDPOINT>,
+    <REQUEST-BODY-CODE>
+  )
+  <CAP-RESPONSE-TYPE>.decode<CAP-RESPONSE-TYPE>(data)
+}
+
+let use<CAP-API-NAME> = (~mutationKey) => {
+  useMutation({
+    mutationKey,
+    mutationFn: data => <API-NAME>ApiCall(<INPUTS>),
+  })
+}
+<OUT=../readOnly/api/integrations/<CAP-API-NAME>.res>

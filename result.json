@@ -1,0 +1,604 @@
+{
+  "apis": {
+    "/auth": [
+      {
+        "method": "Post",
+        "request_type": {
+          "type": "object",
+          "properties": {
+            "deviceToken": "String",
+            "email": "String",
+            "enableOtpLessRide": "Boolean",
+            "firstName": "String",
+            "gender": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "Gender.gender"
+            },
+            "identifierType": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "IdentifierType.identifierType"
+            },
+            "language": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "Language.language"
+            },
+            "lastName": "String",
+            "merchantId": "String",
+            "middleName": "String",
+            "mobileCountryCode": "String",
+            "mobileNumber": "String",
+            "notificationToken": "String",
+            "otpChannel": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "OTPChannel.oTPChannel"
+            },
+            "registrationLat": "Number",
+            "registrationLon": "Number",
+            "whatsappNotificationEnroll": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "OptApiMethods.optApiMethods"
+            }
+          },
+          "required": [
+            "merchantId"
+          ],
+          "type_name": "AuthReq"
+        },
+        "parameters": {},
+        "response_type": {
+          "type": "object",
+          "properties": {
+            "attempts": "Integer",
+            "authId": "String",
+            "authType": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "LoginType.loginType"
+            },
+            "isPersonBlocked": "Boolean",
+            "person": {
+              "type": "object",
+              "properties": {
+                "bundleVersion": {
+                  "type": "object",
+                  "properties": {
+                    "build": "String",
+                    "maintenance": "Integer",
+                    "major": "Integer",
+                    "minor": "Integer",
+                    "preRelease": "String"
+                  },
+                  "required": [
+                    "major",
+                    "minor",
+                    "maintenance"
+                  ],
+                  "type_name": "Version"
+                },
+                "clientVersion": {
+                  "type": "object",
+                  "properties": {
+                    "build": "String",
+                    "maintenance": "Integer",
+                    "major": "Integer",
+                    "minor": "Integer",
+                    "preRelease": "String"
+                  },
+                  "required": [
+                    "major",
+                    "minor",
+                    "maintenance"
+                  ],
+                  "type_name": "Version"
+                },
+                "disability": "String",
+                "email": "String",
+                "firstName": "String",
+                "followsRide": "Boolean",
+                "gender": {
+                  "type": "enum",
+                  "properties": {},
+                  "required": [],
+                  "type_name": "Gender.gender"
+                },
+                "hasCompletedMockSafetyDrill": "Boolean",
+                "hasCompletedSafetySetup": "Boolean",
+                "hasDisability": "Boolean",
+                "hasTakenRide": "Boolean",
+                "hasTakenValidRide": "Boolean",
+                "id": "String",
+                "isSafetyCenterDisabled": "Boolean",
+                "language": {
+                  "type": "enum",
+                  "properties": {},
+                  "required": [],
+                  "type_name": "Language.language"
+                },
+                "lastName": "String",
+                "maskedDeviceToken": "String",
+                "maskedMobileNumber": "String",
+                "middleName": "String",
+                "referralCode": "String",
+                "whatsappNotificationEnrollStatus": {
+                  "type": "enum",
+                  "properties": {},
+                  "required": [],
+                  "type_name": "OptApiMethods.optApiMethods"
+                }
+              },
+              "required": [
+                "id",
+                "hasTakenRide",
+                "hasTakenValidRide",
+                "gender",
+                "hasCompletedSafetySetup",
+                "followsRide",
+                "isSafetyCenterDisabled"
+              ],
+              "type_name": "PersonAPIEntity"
+            },
+            "token": "String"
+          },
+          "required": [
+            "authId",
+            "attempts",
+            "authType",
+            "isPersonBlocked"
+          ],
+          "type_name": "AuthRes"
+        }
+      }
+    ],
+    "/pickup/route": [
+      {
+        "method": "Post",
+        "request_type": {
+          "type": "object",
+          "properties": {
+            "calcPoints": "Boolean",
+            "mode": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "TravelMode.travelMode"
+            },
+            "waypoints": "array<latLong>"
+          },
+          "required": [
+            "waypoints",
+            "calcPoints"
+          ],
+          "type_name": "GetRoutesReq"
+        },
+        "parameters": {},
+        "response_type": {
+          "type": "array",
+          "properties": {},
+          "required": [],
+          "type_name": "RouteInfoArray",
+          "array_item_type": "routeInfo"
+        }
+      }
+    ]
+  },
+  "all-types": {
+    "AuthReq": {
+      "properties": {
+        "deviceToken": "String",
+        "email": "String",
+        "enableOtpLessRide": "Boolean",
+        "firstName": "String",
+        "gender": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "Gender.gender"
+        },
+        "identifierType": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "IdentifierType.identifierType"
+        },
+        "language": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "Language.language"
+        },
+        "lastName": "String",
+        "merchantId": "String",
+        "middleName": "String",
+        "mobileCountryCode": "String",
+        "mobileNumber": "String",
+        "notificationToken": "String",
+        "otpChannel": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "OTPChannel.oTPChannel"
+        },
+        "registrationLat": "Number",
+        "registrationLon": "Number",
+        "whatsappNotificationEnroll": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "OptApiMethods.optApiMethods"
+        }
+      },
+      "required": [
+        "merchantId"
+      ],
+      "count": 1
+    },
+    "Version": {
+      "properties": {
+        "build": "String",
+        "maintenance": "Integer",
+        "major": "Integer",
+        "minor": "Integer",
+        "preRelease": "String"
+      },
+      "required": [
+        "major",
+        "minor",
+        "maintenance"
+      ],
+      "count": 2
+    },
+    "PersonAPIEntity": {
+      "properties": {
+        "bundleVersion": {
+          "type": "object",
+          "properties": {
+            "build": "String",
+            "maintenance": "Integer",
+            "major": "Integer",
+            "minor": "Integer",
+            "preRelease": "String"
+          },
+          "required": [
+            "major",
+            "minor",
+            "maintenance"
+          ],
+          "type_name": "Version"
+        },
+        "clientVersion": {
+          "type": "object",
+          "properties": {
+            "build": "String",
+            "maintenance": "Integer",
+            "major": "Integer",
+            "minor": "Integer",
+            "preRelease": "String"
+          },
+          "required": [
+            "major",
+            "minor",
+            "maintenance"
+          ],
+          "type_name": "Version"
+        },
+        "disability": "String",
+        "email": "String",
+        "firstName": "String",
+        "followsRide": "Boolean",
+        "gender": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "Gender.gender"
+        },
+        "hasCompletedMockSafetyDrill": "Boolean",
+        "hasCompletedSafetySetup": "Boolean",
+        "hasDisability": "Boolean",
+        "hasTakenRide": "Boolean",
+        "hasTakenValidRide": "Boolean",
+        "id": "String",
+        "isSafetyCenterDisabled": "Boolean",
+        "language": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "Language.language"
+        },
+        "lastName": "String",
+        "maskedDeviceToken": "String",
+        "maskedMobileNumber": "String",
+        "middleName": "String",
+        "referralCode": "String",
+        "whatsappNotificationEnrollStatus": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "OptApiMethods.optApiMethods"
+        }
+      },
+      "required": [
+        "id",
+        "hasTakenRide",
+        "hasTakenValidRide",
+        "gender",
+        "hasCompletedSafetySetup",
+        "followsRide",
+        "isSafetyCenterDisabled"
+      ],
+      "count": 1
+    },
+    "AuthRes": {
+      "properties": {
+        "attempts": "Integer",
+        "authId": "String",
+        "authType": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "LoginType.loginType"
+        },
+        "isPersonBlocked": "Boolean",
+        "person": {
+          "type": "object",
+          "properties": {
+            "bundleVersion": {
+              "type": "object",
+              "properties": {
+                "build": "String",
+                "maintenance": "Integer",
+                "major": "Integer",
+                "minor": "Integer",
+                "preRelease": "String"
+              },
+              "required": [
+                "major",
+                "minor",
+                "maintenance"
+              ],
+              "type_name": "Version"
+            },
+            "clientVersion": {
+              "type": "object",
+              "properties": {
+                "build": "String",
+                "maintenance": "Integer",
+                "major": "Integer",
+                "minor": "Integer",
+                "preRelease": "String"
+              },
+              "required": [
+                "major",
+                "minor",
+                "maintenance"
+              ],
+              "type_name": "Version"
+            },
+            "disability": "String",
+            "email": "String",
+            "firstName": "String",
+            "followsRide": "Boolean",
+            "gender": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "Gender.gender"
+            },
+            "hasCompletedMockSafetyDrill": "Boolean",
+            "hasCompletedSafetySetup": "Boolean",
+            "hasDisability": "Boolean",
+            "hasTakenRide": "Boolean",
+            "hasTakenValidRide": "Boolean",
+            "id": "String",
+            "isSafetyCenterDisabled": "Boolean",
+            "language": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "Language.language"
+            },
+            "lastName": "String",
+            "maskedDeviceToken": "String",
+            "maskedMobileNumber": "String",
+            "middleName": "String",
+            "referralCode": "String",
+            "whatsappNotificationEnrollStatus": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "OptApiMethods.optApiMethods"
+            }
+          },
+          "required": [
+            "id",
+            "hasTakenRide",
+            "hasTakenValidRide",
+            "gender",
+            "hasCompletedSafetySetup",
+            "followsRide",
+            "isSafetyCenterDisabled"
+          ],
+          "type_name": "PersonAPIEntity"
+        },
+        "token": "String"
+      },
+      "required": [
+        "authId",
+        "attempts",
+        "authType",
+        "isPersonBlocked"
+      ],
+      "count": 1
+    },
+    "LatLong": {
+      "properties": {
+        "lat": "Number",
+        "lon": "Number"
+      },
+      "required": [
+        "lat",
+        "lon"
+      ],
+      "count": 2
+    },
+    "GetRoutesReq": {
+      "properties": {
+        "calcPoints": "Boolean",
+        "mode": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "TravelMode.travelMode"
+        },
+        "waypoints": "array<latLong>"
+      },
+      "required": [
+        "waypoints",
+        "calcPoints"
+      ],
+      "count": 1
+    },
+    "HighPrecDistance": {
+      "properties": {},
+      "required": [],
+      "count": 1
+    },
+    "Distance": {
+      "properties": {
+        "unit": {
+          "type": "enum",
+          "properties": {},
+          "required": [],
+          "type_name": "DistanceUnit.distanceUnit"
+        },
+        "value": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "type_name": "HighPrecDistance"
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "count": 1
+    },
+    "RouteInfo": {
+      "properties": {
+        "boundingBox": {
+          "type": "string",
+          "properties": {},
+          "required": [],
+          "type_name": "String"
+        },
+        "distance": "Integer",
+        "distanceWithUnit": {
+          "type": "object",
+          "properties": {
+            "unit": {
+              "type": "enum",
+              "properties": {},
+              "required": [],
+              "type_name": "DistanceUnit.distanceUnit"
+            },
+            "value": {
+              "type": "object",
+              "properties": {},
+              "required": [],
+              "type_name": "HighPrecDistance"
+            }
+          },
+          "required": [
+            "value",
+            "unit"
+          ],
+          "type_name": "Distance"
+        },
+        "duration": "Integer",
+        "points": "array<latLong>",
+        "snappedWaypoints": "array<latLong>",
+        "staticDuration": "Integer"
+      },
+      "required": [
+        "snappedWaypoints",
+        "points"
+      ],
+      "count": 1
+    },
+    "RouteInfoArray": {
+      "properties": {
+        "ARRAY_VAL": {
+          "type": "array",
+          "properties": {},
+          "required": [],
+          "type_name": "RouteInfoArray",
+          "array_item_type": "routeInfo"
+        }
+      },
+      "required": [],
+      "count": 1
+    }
+  },
+  "enums": {
+    "Gender": [
+      "MALE",
+      "FEMALE",
+      "OTHER",
+      "UNKNOWN",
+      "PREFER_NOT_TO_SAY"
+    ],
+    "IdentifierType": [
+      "MOBILENUMBER",
+      "AADHAAR",
+      "EMAIL"
+    ],
+    "Language": [
+      "ENGLISH",
+      "HINDI",
+      "KANNADA",
+      "TAMIL",
+      "MALAYALAM",
+      "BENGALI",
+      "FRENCH",
+      "TELUGU"
+    ],
+    "OTPChannel": [
+      "SMS",
+      "WHATSAPP",
+      "EMAIL"
+    ],
+    "OptApiMethods": [
+      "OPT_IN",
+      "OPT_OUT"
+    ],
+    "LoginType": [
+      "OTP",
+      "PASSWORD",
+      "DIRECT",
+      "OAUTH"
+    ],
+    "TravelMode": [
+      "CAR",
+      "MOTORCYCLE",
+      "BICYCLE",
+      "FOOT"
+    ],
+    "DistanceUnit": [
+      "Meter",
+      "Mile",
+      "Yard",
+      "Kilometer"
+    ]
+  }
+}

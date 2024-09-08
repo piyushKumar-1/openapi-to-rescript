@@ -1,0 +1,15 @@
+type <TYPE-NAME> = <TYPE-SCHEMA>
+
+let decode<CAP-TYPE-NAME> = data => {
+  try {
+    Ok(<DECODE-CODE>)
+  }
+  catch {
+    | err => Error(err)
+  }
+}
+
+let toJson = (req: <TYPE-NAME>) => {
+  req->asJson
+}
+<OUT=../readOnly/api/types/<CAP-TYPE-NAME>.res>
